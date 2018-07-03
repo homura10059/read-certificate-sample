@@ -51,7 +51,7 @@ public class Main {
                                 .generateCertificate(stream);
 
                         // コモンネーム等を調べる
-                        String issuerNames = cert.getIssuerX500Principal().getName();
+                        String issuerNames = cert.getSubjectX500Principal().getName();
                         Map<String, String> nameMap = Arrays.stream(issuerNames.split(","))
                                 .map(x -> x.split("="))
                                 .collect(Collectors.toMap(x -> x[0], x -> x[1]));
